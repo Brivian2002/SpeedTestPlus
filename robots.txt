@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://speedtestplus.vercel.app/sitemap.xml
+
+# Disallow common non-content paths
+Disallow: /api/
+Disallow: /.well-known/

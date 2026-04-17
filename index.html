@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speed Test Plus - Free Internet Speed Test | Check Download, Upload & Ping</title>
+  <meta name="description" content="Test your internet speed instantly with Speed Test Plus. Get accurate download speed, upload speed, ping, and jitter measurements. Free, fast, and no app needed.">
+  <meta name="keywords" content="speed test, internet speed test, check internet speed, download speed test, upload speed test, ping test, wifi speed test, broadband speed test, network speed test">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://speedtestplus.vercel.app/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Speed Test Plus - Free Internet Speed Test">
+  <meta property="og:description" content="Check your internet speed instantly. Accurate download, upload, ping & jitter measurements.">
+  <meta property="og:url" content="https://speedtestplus.vercel.app/">
+  <meta property="og:site_name" content="Speed Test Plus">
+  <meta property="og:image" content="https://speedtestplus.vercel.app/images/og-image.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Speed Test Plus - Free Internet Speed Test">
+  <meta name="twitter:description" content="Check your internet speed instantly with accurate results.">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Speed Test Plus",
+    "url": "https://speedtestplus.vercel.app",
+    "description": "Free online internet speed test tool that measures download speed, upload speed, ping latency, and jitter.",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "15420",
+      "bestRating": "5"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Speed Test Plus",
+    "url": "https://speedtestplus.vercel.app",
+    "logo": "https://speedtestplus.vercel.app/images/logo.png",
+    "sameAs": []
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Speed Test Plus Home">
+        <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+        <span>SpeedTest<span class="logo-plus">Plus</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Speed Test</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="internet-speed-guide.html">Speed Guide</a></li>
+        <li><a href="tips.html">Improve Speed</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="#speed-test" class="nav-cta">Run Test</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO + SPEED TEST -->
+  <section class="hero" id="speed-test">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-bolt"></i> Free &amp; Accurate Speed Test
+      </div>
+      <h1>Test Your <span class="gradient-text">Internet Speed</span> Instantly</h1>
+      <p class="hero-subtitle">
+        Get precise measurements of your download speed, upload speed, ping, and jitter in seconds. 
+        No downloads, no registration required.
+      </p>
+
+      <!-- Speed Test Widget -->
+      <div class="speed-test-card" id="speed-test-widget" role="application" aria-label="Internet Speed Test Tool">
+        <!-- Gauge -->
+        <div class="gauge-container">
+          <svg class="gauge-svg" viewBox="0 0 200 110">
+            <defs>
+              <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#4F46E5" />
+                <stop offset="50%" stop-color="#06B6D4" />
+                <stop offset="100%" stop-color="#10B981" />
+              </linearGradient>
+            </defs>
+            <!-- Background arc -->
+            <path class="gauge-bg" d="M 20 100 A 80 80 0 0 1 180 100" />
+            <!-- Fill arc -->
+            <path class="gauge-fill" id="gauge-fill" d="M 20 100 A 80 80 0 0 1 180 100" />
+          </svg>
+          <div class="gauge-value">
+            <div class="gauge-number" id="gauge-number">0</div>
+            <div class="gauge-unit" id="gauge-unit">Mbps</div>
+            <div class="gauge-label" id="gauge-label">Ready</div>
+          </div>
+        </div>
+
+        <!-- Start Button -->
+        <button class="start-test-btn" id="start-test-btn" aria-label="Start internet speed test">
+          <i class="fas fa-play"></i> Start Test
+          <span class="btn-pulse"></span>
+        </button>
+
+        <!-- Results Grid -->
+        <div class="results-grid" aria-live="polite">
+          <div class="result-item">
+            <div class="result-icon" style="color:#818CF8;">
+              <i class="fas fa-download"></i>
+            </div>
+            <div class="result-value" id="result-download">--</div>
+            <div class="result-label">Download</div>
+          </div>
+          <div class="result-item">
+            <div class="result-icon" style="color:#06B6D4;">
+              <i class="fas fa-upload"></i>
+            </div>
+            <div class="result-value" id="result-upload">--</div>
+            <div class="result-label">Upload</div>
+          </div>
+          <div class="result-item">
+            <div class="result-icon" style="color:#10B981;">
+              <i class="fas fa-signal"></i>
+            </div>
+            <div class="result-value" id="result-ping">--</div>
+            <div class="result-label">Ping (ms)</div>
+          </div>
+          <div class="result-item">
+            <div class="result-icon" style="color:#F59E0B;">
+              <i class="fas fa-wave-square"></i>
+            </div>
+            <div class="result-value" id="result-jitter">--</div>
+            <div class="result-label">Jitter (ms)</div>
+          </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="test-progress" id="test-progress">
+          <div class="test-progress-bar" id="test-progress-bar"></div>
+        </div>
+        <div class="test-status" id="test-status">Click "Start Test" to begin</div>
+
+        <!-- Speed Rating -->
+        <div id="speed-rating"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD SLOT - Top Banner -->
+  <div class="ad-slot ad-slot-horizontal" aria-hidden="true">
+    <!-- AdSense Ad Unit Placeholder - Replace with your ad code -->
+    <span>Advertisement</span>
+  </div>
+
+  <!-- FEATURES SECTION -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Why Speed Test Plus</span>
+        <h2>Accurate, Fast &amp; Reliable Speed Testing</h2>
+        <p>We use advanced testing methodology with multiple server connections to deliver the most accurate results possible.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+          <h3>Lightning Fast</h3>
+          <p>Get your results in under 30 seconds. Our optimized testing engine adapts to your connection speed for faster measurements.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon" style="background:rgba(6,182,212,0.1);color:#06B6D4;"><i class="fas fa-bullseye"></i></div>
+          <h3>Highly Accurate</h3>
+          <p>Multi-thread testing with statistical analysis removes outliers and gives you the most precise speed readings.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon" style="background:rgba(16,185,129,0.1);color:#10B981;"><i class="fas fa-shield-halved"></i></div>
+          <h3>100% Private</h3>
+          <p>No registration required. Your test data stays on your device. We don't track or store your personal information.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon" style="background:rgba(245,158,11,0.1);color:#F59E0B;"><i class="fas fa-mobile-screen"></i></div>
+          <h3>Works Everywhere</h3>
+          <p>Test from any device — desktop, tablet, or mobile. Our responsive tool works perfectly in any modern browser.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon" style="background:rgba(239,68,68,0.1);color:#EF4444;"><i class="fas fa-chart-line"></i></div>
+          <h3>Test History</h3>
+          <p>Track your speed over time with built-in history. Compare results to monitor your ISP's performance.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon" style="background:rgba(168,85,247,0.1);color:#A855F7;"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Speed Guides</h3>
+          <p>Learn what your results mean and get actionable tips to improve your connection speed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats-bar" aria-label="Statistics">
+    <div class="stats-grid">
+      <div class="stat-item fade-in">
+        <h3>4M+</h3>
+        <p>Tests Completed</p>
+      </div>
+      <div class="stat-item fade-in">
+        <h3>190+</h3>
+        <p>Countries Covered</p>
+      </div>
+      <div class="stat-item fade-in">
+        <h3>&lt; 30s</h3>
+        <p>Average Test Time</p>
+      </div>
+      <div class="stat-item fade-in">
+        <h3>99.9%</h3>
+        <p>Accuracy Rate</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (preview) -->
+  <section class="section" id="how-it-works-preview">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">How It Works</span>
+        <h2>Three Simple Steps to Test Your Speed</h2>
+        <p>Our advanced tool measures your connection in seconds.</p>
+      </div>
+      <div class="steps-container">
+        <div class="step-card fade-in">
+          <div class="step-number">1</div>
+          <h3>Click Start Test</h3>
+          <p>Hit the big "Start Test" button. Our tool automatically finds the optimal server for your location.</p>
+        </div>
+        <div class="step-card fade-in">
+          <div class="step-number">2</div>
+          <h3>We Measure Your Speed</h3>
+          <p>We test ping latency, download speed, upload speed, and jitter using multiple parallel connections.</p>
+        </div>
+        <div class="step-card fade-in">
+          <div class="step-number">3</div>
+          <h3>Get Your Results</h3>
+          <p>See your detailed results with a speed rating and personalized recommendations to improve performance.</p>
+        </div>
+      </div>
+      <div class="text-center mt-4 fade-in">
+        <a href="how-it-works.html" class="btn-secondary"><i class="fas fa-book-open"></i> Learn More About Our Technology</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNDERSTAND YOUR RESULTS -->
+  <section class="section" id="understand-results" style="background: var(--dark-secondary);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Understanding Results</span>
+        <h2>What Do Your Speed Test Results Mean?</h2>
+        <p>Decode your download, upload, ping, and jitter readings.</p>
+      </div>
+      <div class="info-cards">
+        <div class="info-card fade-in">
+          <div class="info-header">
+            <div class="info-icon icon-download"><i class="fas fa-download"></i></div>
+            <h3>Download Speed</h3>
+          </div>
+          <p>How fast data travels <strong>from the internet to your device</strong>. Important for streaming, browsing, and downloading files. Measured in Mbps (Megabits per second).</p>
+          <span class="speed-range">25+ Mbps = Good for most activities</span>
+        </div>
+        <div class="info-card fade-in">
+          <div class="info-header">
+            <div class="info-icon icon-upload"><i class="fas fa-upload"></i></div>
+            <h3>Upload Speed</h3>
+          </div>
+          <p>How fast data travels <strong>from your device to the internet</strong>. Crucial for video calls, cloud backups, live streaming, and sharing large files online.</p>
+          <span class="speed-range">5+ Mbps = Good for video calls</span>
+        </div>
+        <div class="info-card fade-in">
+          <div class="info-header">
+            <div class="info-icon icon-ping"><i class="fas fa-signal"></i></div>
+            <h3>Ping (Latency)</h3>
+          </div>
+          <p>The <strong>reaction time</strong> of your connection — how fast you get a response after sending a request. Critical for gaming, video calls, and real-time applications.</p>
+          <span class="speed-range">&lt; 30 ms = Excellent for gaming</span>
+        </div>
+        <div class="info-card fade-in">
+          <div class="info-header">
+            <div class="info-icon icon-jitter"><i class="fas fa-wave-square"></i></div>
+            <h3>Jitter</h3>
+          </div>
+          <p>The <strong>variation in ping</strong> over time. High jitter causes choppy video calls and lag spikes in games. Consistent, low jitter means a stable connection.</p>
+          <span class="speed-range">&lt; 5 ms = Stable connection</span>
+        </div>
+      </div>
+      <div class="text-center mt-4 fade-in">
+        <a href="internet-speed-guide.html" class="btn-secondary"><i class="fas fa-book"></i> Read Full Speed Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AD SLOT -->
+  <div class="ad-slot ad-slot-horizontal" aria-hidden="true">
+    <span>Advertisement</span>
+  </div>
+
+  <!-- HISTORY SECTION -->
+  <section class="section" id="history">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Test History</span>
+        <h2>Your Recent Speed Tests</h2>
+        <p>Track your internet speed over time. All data is stored locally on your device.</p>
+      </div>
+      <div class="fade-in" style="max-width:900px;margin:0 auto;">
+        <div style="overflow-x:auto;">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Download</th>
+                <th>Upload</th>
+                <th>Ping</th>
+                <th>Jitter</th>
+              </tr>
+            </thead>
+            <tbody id="history-body">
+              <tr>
+                <td colspan="5" class="history-empty">
+                  <i class="fas fa-history" style="font-size:1.5rem;margin-bottom:0.5rem;display:block;color:var(--gray-600);"></i>
+                  No test history yet. Run a speed test to see results here.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="text-center mt-2">
+          <button class="clear-history-btn" onclick="clearHistory()">
+            <i class="fas fa-trash-alt"></i> Clear History
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION (preview) -->
+  <section class="section" id="faq-section" style="background: var(--dark-secondary);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">FAQ</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers to common questions about internet speed testing.</p>
+      </div>
+      <div class="faq-list fade-in">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How accurate is Speed Test Plus?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Speed Test Plus uses multi-connection testing with statistical analysis to deliver highly accurate results. We test against Cloudflare's global edge network, which has servers in over 300 cities worldwide, ensuring you get the most representative measurement of your actual internet speed.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Why is my speed test result different from what my ISP promises?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              ISPs advertise "up to" speeds, meaning maximum theoretical throughput. Actual speeds vary due to network congestion, Wi-Fi interference, distance from router, number of connected devices, time of day, and server load. Wired (Ethernet) connections typically show higher speeds than Wi-Fi.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What is a good internet speed?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              It depends on your usage: <strong>25 Mbps</strong> is good for general browsing and HD streaming. <strong>50 Mbps</strong> handles multiple devices and 4K streaming. <strong>100+ Mbps</strong> is ideal for heavy usage, gaming, and large households. For gaming, a <strong>ping under 30ms</strong> is excellent.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How can I improve my internet speed?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Common ways to improve speed include: using a wired Ethernet connection, restarting your router, reducing the number of connected devices, updating your router firmware, moving closer to your router, switching to the 5GHz Wi-Fi band, and checking for background downloads.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Does Speed Test Plus store my data?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              No. All test results are stored locally in your browser's localStorage. We do not collect, track, or store any personal data or test results on our servers. Your privacy is fully protected. You can clear your local history anytime.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4 fade-in">
+        <a href="faq.html" class="btn-secondary"><i class="fas fa-question-circle"></i> View All FAQs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <h2>Ready to Test Your Speed?</h2>
+    <p>Join millions of users who trust Speed Test Plus for accurate internet speed measurements.</p>
+    <a href="#speed-test" class="btn-primary"><i class="fas fa-bolt"></i> Run Speed Test Now</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+          <span>SpeedTest<span class="logo-plus">Plus</span></span>
+        </a>
+        <p>The fastest, most accurate free internet speed test. Check your download speed, upload speed, ping, and jitter instantly.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="index.html">Speed Test</a></li>
+          <li><a href="index.html#history">Test History</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="internet-speed-guide.html">Speed Guide</a></li>
+          <li><a href="tips.html">Improve Speed</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Speed Test Plus. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/speedtest.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

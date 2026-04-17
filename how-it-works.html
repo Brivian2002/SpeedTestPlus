@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Internet Speed Tests Work | Speed Test Plus</title>
+  <meta name="description" content="Learn how internet speed tests work. Understand the technology behind download speed, upload speed, ping, and jitter measurements with our detailed guide.">
+  <meta name="keywords" content="how speed test works, internet speed test explained, download speed measurement, upload speed test, ping test explained, how to test internet speed">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://speedtestplus.vercel.app/how-it-works.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How Internet Speed Tests Work | Speed Test Plus">
+  <meta property="og:description" content="Understand the technology behind speed testing — download, upload, ping, and jitter.">
+  <meta property="og:url" content="https://speedtestplus.vercel.app/how-it-works.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Internet Speed Tests Work",
+    "description": "A comprehensive guide to how internet speed tests measure download speed, upload speed, ping, and jitter.",
+    "author": { "@type": "Organization", "name": "Speed Test Plus" },
+    "publisher": { "@type": "Organization", "name": "Speed Test Plus" },
+    "datePublished": "2025-01-01",
+    "dateModified": "2025-06-01"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo" aria-label="Speed Test Plus Home">
+        <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+        <span>SpeedTest<span class="logo-plus">Plus</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Speed Test</a></li>
+        <li><a href="how-it-works.html" class="active">How It Works</a></li>
+        <li><a href="internet-speed-guide.html">Speed Guide</a></li>
+        <li><a href="tips.html">Improve Speed</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#speed-test" class="nav-cta">Run Test</a></li>
+      </ul>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="separator">/</span>
+      <span>How It Works</span>
+    </nav>
+    <h1>How Internet Speed Tests Work</h1>
+    <p>Understand the science and technology behind measuring your internet connection's real-world performance.</p>
+  </section>
+
+  <!-- CONTENT -->
+  <div class="content-layout">
+    <main class="content-main">
+      <article class="article-content">
+        <h2 id="overview">Overview: What Happens During a Speed Test?</h2>
+        <p>When you click "Start Test" on Speed Test Plus, our tool performs a series of carefully orchestrated measurements to determine four key metrics about your internet connection: <strong>ping (latency)</strong>, <strong>jitter</strong>, <strong>download speed</strong>, and <strong>upload speed</strong>.</p>
+        <p>Each measurement uses different techniques and runs in a specific order to ensure accuracy. The entire process typically takes 15-30 seconds depending on your connection speed.</p>
+
+        <h2 id="ping-measurement">Phase 1: Ping &amp; Jitter Measurement</h2>
+        <p>The test begins by measuring <strong>latency</strong> (commonly called "ping"). This is the time it takes for a tiny data packet to travel from your device to our test server and back.</p>
+        <h3>How We Measure Ping</h3>
+        <ul>
+          <li>We send 20 consecutive small HTTP requests to Cloudflare's edge servers</li>
+          <li>Each request measures the round-trip time in milliseconds</li>
+          <li>We use the <strong>median</strong> value (not average) to eliminate outliers</li>
+          <li>The first and last readings are trimmed for accuracy</li>
+        </ul>
+        <h3>How We Calculate Jitter</h3>
+        <p>Jitter represents the <strong>variation in ping times</strong>. We calculate it by measuring the average difference between consecutive ping readings. Low jitter means your connection is stable; high jitter indicates inconsistency that can affect real-time applications like gaming and video calls.</p>
+        <blockquote>
+          <strong>Pro Tip:</strong> A ping under 30ms and jitter under 5ms is considered excellent for gaming and video conferencing.
+        </blockquote>
+
+        <h2 id="download-test">Phase 2: Download Speed Test</h2>
+        <p>After measuring latency, the tool tests your <strong>download speed</strong> — how fast data can travel from the internet to your device.</p>
+        <h3>Our Download Testing Methodology</h3>
+        <ul>
+          <li>We start with small file downloads (256KB) and progressively increase size (up to 25MB)</li>
+          <li>This adaptive approach ensures both slow and fast connections are tested accurately</li>
+          <li>Each download uses streaming to measure speed in real-time as data arrives</li>
+          <li>We track bytes received per second and convert to Megabits per second (Mbps)</li>
+          <li>Multiple rounds at optimal file sizes improve statistical accuracy</li>
+          <li>We take the <strong>top 60% of measurements</strong> to exclude slow-start effects</li>
+        </ul>
+        <p>The total download test runs for up to 10 seconds, adapting the number of rounds based on your connection speed. Fast connections will test with larger files, while slower connections use smaller ones to provide quicker results.</p>
+
+        <h2 id="upload-test">Phase 3: Upload Speed Test</h2>
+        <p>The upload test measures how fast data travels <strong>from your device to the internet</strong>.</p>
+        <h3>Our Upload Testing Methodology</h3>
+        <ul>
+          <li>We generate random data blocks of increasing size (256KB to 2MB)</li>
+          <li>Each block is sent to the test server via HTTP POST</li>
+          <li>We measure the total time from request start to server acknowledgment</li>
+          <li>Multiple rounds improve accuracy, similar to the download test</li>
+          <li>Upload tests run for up to 8 seconds total</li>
+        </ul>
+        <p>Upload speeds are typically lower than download speeds because most ISP plans are asymmetric — designed to prioritize downloading over uploading.</p>
+
+        <h2 id="accuracy">Ensuring Accuracy</h2>
+        <p>Speed Test Plus employs several techniques to maximize accuracy:</p>
+        <ul>
+          <li><strong>Cloudflare Edge Network:</strong> We test against Cloudflare's servers, which are located in 300+ cities worldwide, minimizing geographic distance effects</li>
+          <li><strong>Statistical Analysis:</strong> We use median values and top-percentile filtering to remove outliers and slow-start artifacts</li>
+          <li><strong>Adaptive Sizing:</strong> File sizes automatically scale based on your connection speed</li>
+          <li><strong>Cache Prevention:</strong> Every request includes unique parameters to prevent browser caching</li>
+          <li><strong>Stream-Based Measurement:</strong> Download speeds are measured using the Streams API for real-time accuracy</li>
+        </ul>
+
+        <h2 id="factors">Factors That Affect Your Results</h2>
+        <p>Several factors can influence your speed test results:</p>
+        <table class="speed-table">
+          <thead>
+            <tr>
+              <th>Factor</th>
+              <th>Impact</th>
+              <th>Solution</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Wi-Fi vs Ethernet</td>
+              <td>Wi-Fi can reduce speeds by 20-50%</td>
+              <td>Use a wired Ethernet connection for true speeds</td>
+            </tr>
+            <tr>
+              <td>Network congestion</td>
+              <td>Peak hours slow everyone down</td>
+              <td>Test at different times of day</td>
+            </tr>
+            <tr>
+              <td>Other devices</td>
+              <td>Bandwidth shared across devices</td>
+              <td>Pause other devices during test</td>
+            </tr>
+            <tr>
+              <td>VPN/Proxy</td>
+              <td>Adds extra routing and encryption overhead</td>
+              <td>Disable VPN for accurate results</td>
+            </tr>
+            <tr>
+              <td>Browser extensions</td>
+              <td>Ad blockers can interfere</td>
+              <td>Disable extensions or use incognito mode</td>
+            </tr>
+            <tr>
+              <td>Router quality</td>
+              <td>Older routers bottleneck speed</td>
+              <td>Upgrade to Wi-Fi 6/6E router</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="units">Understanding Speed Units</h2>
+        <p>Internet speed is measured in <strong>Mbps</strong> (Megabits per second). Here's a quick reference:</p>
+        <ul>
+          <li><strong>1 Mbps</strong> = 1,000,000 bits per second</li>
+          <li><strong>1 byte</strong> = 8 bits</li>
+          <li><strong>1 MB/s</strong> (Megabytes per second) = 8 Mbps</li>
+          <li>So a 100 Mbps connection can download about <strong>12.5 MB per second</strong></li>
+        </ul>
+        <p>ISPs typically advertise in Mbps, while file managers show download progress in MB/s. Don't confuse the two — they differ by a factor of 8!</p>
+
+        <div class="ad-slot ad-slot-horizontal mt-4" aria-hidden="true">
+          <span>Advertisement</span>
+        </div>
+
+        <h2 id="best-practices">Best Practices for Accurate Testing</h2>
+        <ol>
+          <li><strong>Use Ethernet:</strong> Connect directly to your router for the most accurate results</li>
+          <li><strong>Close other apps:</strong> Stop all downloads, streams, and background processes</li>
+          <li><strong>Disconnect other devices:</strong> Or at least ensure they're not using heavy bandwidth</li>
+          <li><strong>Disable VPN:</strong> VPNs add latency and may reduce throughput</li>
+          <li><strong>Run multiple tests:</strong> Take 3+ tests and average the results</li>
+          <li><strong>Test at different times:</strong> Peak vs off-peak hours can show significant differences</li>
+          <li><strong>Restart your router:</strong> If speeds seem abnormally low, a restart often helps</li>
+        </ol>
+      </article>
+    </main>
+
+    <aside class="content-sidebar">
+      <div class="sidebar-widget">
+        <h3><i class="fas fa-list"></i> Table of Contents</h3>
+        <ul class="toc-list">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#ping-measurement">Ping & Jitter</a></li>
+          <li><a href="#download-test">Download Test</a></li>
+          <li><a href="#upload-test">Upload Test</a></li>
+          <li><a href="#accuracy">Ensuring Accuracy</a></li>
+          <li><a href="#factors">Factors That Affect Results</a></li>
+          <li><a href="#units">Understanding Speed Units</a></li>
+          <li><a href="#best-practices">Best Practices</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-widget">
+        <h3><i class="fas fa-bolt"></i> Quick Test</h3>
+        <p style="color:var(--gray-400);font-size:0.9rem;margin-bottom:1rem;">Ready to check your speed?</p>
+        <a href="index.html#speed-test" class="btn-primary" style="width:100%;justify-content:center;font-size:0.9rem;padding:0.7rem 1rem;">
+          <i class="fas fa-play"></i> Run Speed Test
+        </a>
+      </div>
+
+      <div class="ad-slot ad-slot-sidebar" aria-hidden="true">
+        <span>Advertisement</span>
+      </div>
+    </aside>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Test Your Internet Speed Now</h2>
+    <p>See how these measurements work in real time on your own connection.</p>
+    <a href="index.html#speed-test" class="btn-primary"><i class="fas fa-bolt"></i> Run Speed Test</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+          <span>SpeedTest<span class="logo-plus">Plus</span></span>
+        </a>
+        <p>The fastest, most accurate free internet speed test. Check your download speed, upload speed, ping, and jitter instantly.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="index.html">Speed Test</a></li>
+          <li><a href="index.html#history">Test History</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="internet-speed-guide.html">Speed Guide</a></li>
+          <li><a href="tips.html">Improve Speed</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Speed Test Plus. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
